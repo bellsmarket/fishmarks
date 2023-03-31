@@ -100,7 +100,7 @@ end
 function list_bookmarks --description "List all available bookmarks"
     if not _check_help $argv[1];
         cat $SDIRS | grep "^export DIR_" | sed "s/^export /set -x /" | sed "s/=/ /" | .
-        env | sort | awk '/DIR_.+/{split(substr($0,5),parts,"="); printf("\033[0;33m%-20s\033[0m %s\n", parts[1], parts[2]);}'
+        env | sort | awk '/DIR_.+/{split(substr($0,5),parts,"="); printf("\t\033[0;36m%-20s\033[0m %s\n", parts[1], parts[2]);}'
     end
 end
 
